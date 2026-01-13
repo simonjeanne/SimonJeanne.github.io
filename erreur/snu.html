@@ -1,0 +1,174 @@
+<html>
+
+<head>
+	<meta name="robots" content="noindex, nofollow" />
+
+	<title >S.N.U.</title>  
+	
+	<style> 
+		body{ cursor:url(media/cursor_snu.png),auto; }
+	</style>
+	
+</head>
+
+
+
+
+
+<body id="page" background="media/background_snu.png">
+
+	<audio id="marseille" src="media/marseille.mp3" preload="yes"></audio>
+	<audio id="sound_fire" src="media/fire.mp3" preload="yes"></audio>
+	<audio id="didier" src="media/didier_snu.mp3" preload="yes"></audio>
+	<audio id="sound_explode_1" src="media/explode.mp3" preload="yes"></audio>
+	<audio id="sound_explode_2" src="media/explode.mp3" preload="yes"></audio>
+	<audio id="sound_explode_3" src="media/explode.mp3" preload="yes"></audio>
+    <audio id="sound_explode_4" src="media/explode.mp3" preload="yes"></audio>
+
+	<table border = "0" width="100%">
+	
+		<tr height="185">
+			<th width="10%"> <img id="img_snu_icone_hg" width="180" src="media/snu.png"> </th>	<th width="10%"> </th>	<th width="10%"> </th>	<th width="10%"> </th>	<th width="10%" colspan="2" rowspan="2"> <img id="img_starship3" width="360" src="media/starship_3.gif"> </th>  <th width="10%"> </th> <th width="10%"> </th> <th width="10%"> </th> <th width="10%"> <img id="img_snu_icone_hd" width="180" src="media/snu.png"> </th>
+		</tr>	
+		<tr height="185">
+			<th width="10%"> </th>	<th width="10%"> </th>	<th width="10%" colspan="2"> <img height="180" id="img_starship1" src="media/starship_1.gif"> </th> <th width="10%"> </th>  <th width="10%" rowspan="2" colspan="3"> <img width="545" height="360" id="img_darmanin" src="media/darmanin.gif"> </th> 
+		</tr>	
+		<tr height="185">
+			<th width="10%"> </th>	<th width="10%" colspan="2" rowspan="2"> <img width="370" id="img_retailleau" src="media/retailleau_snu.png" </th>	<th width="10%"> </th>	<th width="10%" colspan="2" rowspan="2"> <img id="img_joinsnu" width="360" src="media/rejoins_nous.png"> </th>  <th width="10%"> </th>
+		</tr>	
+		<tr height="185">
+			<th width="10%"> </th>	<th width="10%"> </th>	<th width="10%"> </th>	<th width="10%"> </th> <th width="10%"> </th> <th width="10%"> </th> 
+		</tr>	
+		<tr height="185">
+			<th width="10%"> </th>	 <th width="10%"> </th> <th width="10%"> </th>	<th width="10%" colspan="2" rowspan="2"> <img width="330" id="img_starship2" src="media/starship_2.gif"  </th>	 <th width="10%"> </th> <th width="10%"> </th> <th width="10%" colspan="2" rowspan="2"> <img width="300" id="img_macron" src="media/macron_snu.png"> </th> <th width="10%" > </th> 
+		</tr>
+		<tr height="185">
+			<th width="10%"> <img id="img_snu_icone_bg" width="180" src="media/snu.png"> </th>	<th width="10%"> </th>	<th width="10%"> </th> <th width="10%"> </th> <th width="10%"> </th> <th width="10%"> <img id="img_snu_icone_bd" width="180" src="media/snu.png"> </th> 
+		</tr>	
+				
+		
+	
+	</table>
+
+
+
+
+
+
+	<script>
+		const page = document.getElementById('page');
+		
+		const marseille = document.getElementById('marseille');
+		const didier = document.getElementById('didier');
+		const sound_fire = document.getElementById('sound_fire');
+		let sound_explode = document.getElementById('sound_explode_1');
+		
+		const img_join_us = document.getElementById('img_joinsnu');
+		const img_macron = document.getElementById('img_macron');
+		const img_darmanin = document.getElementById('img_darmanin');
+		const img_retailleau = document.getElementById('img_retailleau');
+
+		const img_starship1 = document.getElementById('img_starship1');
+		const img_starship2 = document.getElementById('img_starship2');
+		const img_starship3 = document.getElementById('img_starship3');
+		
+		const snu_icone_hg = document.getElementById('img_snu_icone_hg');
+		const snu_icone_bg = document.getElementById('img_snu_icone_bg');
+		const snu_icone_hd = document.getElementById('img_snu_icone_hd');
+		const snu_icone_bd = document.getElementById('img_snu_icone_bd');
+		
+		let bool_joindre = 0;
+		let bool_first_click = 0;
+		let temps = 0;
+		
+		let nb_click = 0;
+		
+		let bool_explosion = 0;
+
+		
+		let i=0;
+		
+		
+		page.addEventListener('mousemove',  () => { if( bool_joindre == 0 ) { marseille.play();} } );
+		page.addEventListener('click', () => 
+		{ if( bool_first_click == 0 ) { bool_first_click = 1; marseille.play(); } 
+		  if( bool_joindre == 1 ) { nb_click++; } 
+		  if( nb_click > 10 ) {  didier.currentTime = 49.5; didier.play();  }		
+		});
+		
+
+		img_macron.addEventListener('click', () => {  alert("Grâce au SNU et à ma génialitude, on va réussir à bloquer les extrêmes !");   } );
+		img_darmanin.addEventListener('click', () => {  alert("Ils m'ont déplacé à la justice, mais je ne vais pas pour autant laisser mon gros engin à Retailleau !");   } );		
+		img_retailleau.addEventListener('click', () => {  alert("Maudit Darmanin ! C'est mon tour de jouer avec le gros engin !");   } );
+		
+		let snusnu=0;
+		snu_icone_bd.addEventListener('click', () => { snu_icone_bd.src="media/snusnu.png";  snusnu++; if( snusnu==4) { setTimeout( () => { alert("Es-tu prêt à mourir pour le SNU SNU ?"); } , 200 ); }  } , { once: true}  );
+		snu_icone_hd.addEventListener('click', () => { snu_icone_hd.src="media/snusnu.png";  snusnu++; if( snusnu==4) { setTimeout( () => { alert("Es-tu prêt à mourir pour le SNU SNU ?"); } , 200 ); }  } , { once: true}  );
+		snu_icone_bg.addEventListener('click', () => { snu_icone_bg.src="media/snusnu.png";  snusnu++; if( snusnu==4) { setTimeout( () => { alert("Es-tu prêt à mourir pour le SNU SNU ?"); } , 200 ); }  } , { once: true}  );
+		snu_icone_hg.addEventListener('click', () => { snu_icone_hg.src="media/snusnu.png";  snusnu++; if( snusnu==4) { setTimeout( () => { alert("Es-tu prêt à mourir pour le SNU SNU ?"); } , 200 ); }  } , { once: true}  );
+		
+		img_join_us.addEventListener('click', () =>  {  if( bool_joindre == 0 && bool_first_click==1 ) { rejoindre_snu(); } }); 
+
+		function rejoindre_snu()
+		{ bool_joindre=1;
+		
+		  img_join_us.src = "media/rejoins_nous_.png" ;
+
+		  marseille.pause();
+		  sound_fire.play(); 
+		  
+		  setTimeout( () => { explosion(img_macron); page.background = "media/background_snu_a.png" ; }, 4000 );
+		  setTimeout( () => { img_macron.removeAttribute("src"); }, 5200 );
+		  setTimeout( () => { explosion(img_starship1); page.background = "media/background_snu_b.png" ; }, 6000 );
+		  setTimeout( () => { img_starship1.removeAttribute("src"); }, 7200 );
+		  setTimeout( () => { explosion(img_retailleau); page.background = "media/background_snu_c.png" ; }, 6500 );
+		  setTimeout( () => { img_retailleau.removeAttribute("src"); }, 7700 );
+		  setTimeout( () => { explosion(img_starship2); page.background = "media/background_snu_d.png" ; }, 9000 );
+		  setTimeout( () => { img_starship2.removeAttribute("src"); }, 10200 );
+		  setTimeout( () => { explosion(img_darmanin); page.background = "media/background_snu_e.png" ; }, 9400 );
+		  setTimeout( () => { img_darmanin.removeAttribute("src"); img_darmanin.removeAttribute("height"); }, 10600 );
+		  setTimeout( () => { explosion(img_starship3); page.background = "media/background_snu_f.png" ; }, 10400 );
+		  setTimeout( () => { img_starship3.removeAttribute("src"); }, 11600 );
+		  
+		  setTimeout( () => { explosion(snu_icone_bd); }, 11200 );
+		  setTimeout( () => { snu_icone_bd.removeAttribute("src"); page.background = "media/background_snu_g.png" ; }, 11400 );
+		  setTimeout( () => { explosion(snu_icone_hg); }, 11800 );
+		  setTimeout( () => { snu_icone_hg.removeAttribute("src"); page.background = "media/background_snu_h.png" ; }, 13000 );
+		  setTimeout( () => { explosion(snu_icone_hd); }, 12200 );
+		  setTimeout( () => { snu_icone_hd.removeAttribute("src"); page.background = "media/background_snu_i.png" ; }, 13400 );
+		  setTimeout( () => { explosion(snu_icone_bg); }, 12400 );
+		  setTimeout( () => { snu_icone_bg.removeAttribute("src"); page.background = "media/background_snu_2.png" ; }, 13600 );
+		  
+		  temps = 20000; setTimeout( () => { alert("Qu'as tu fait ?!"); img_join_us.removeAttribute("src") ; } , temps  );
+		  
+		  
+		  temps = 21000; setTimeout( () => { didier.play(); } , temps ); setTimeout( () => { didier.volume=0.01; } , temps );
+		  for(i=0;i<100;i++)
+		  { temps = temps+100;
+			setTimeout( () => { didier.volume=didier.volume+0.01; }, temps );
+		  }
+		}
+		
+		function explosion(_image)
+		{ _image.src = "media/explode_.gif";  sound_explode.play(); 
+		  bool_explosion = 0;
+		  if( sound_explode == document.getElementById('sound_explode_1') && bool_explosion == 0) { sound_explode = document.getElementById('sound_explode_2');  bool_explosion = 1; }
+		  if( sound_explode == document.getElementById('sound_explode_2') && bool_explosion == 0) { sound_explode = document.getElementById('sound_explode_3');  bool_explosion = 1; }
+		  if( sound_explode == document.getElementById('sound_explode_3') && bool_explosion == 0) { sound_explode = document.getElementById('sound_explode_4');  bool_explosion = 1; }
+		  if( sound_explode == document.getElementById('sound_explode_4') && bool_explosion == 0) { sound_explode = document.getElementById('sound_explode_1');  bool_explosion = 1; }
+		}
+	
+	</script>
+
+
+</body>
+
+		  <!--
+« Je sais qu’il y en a qui disent : ils sont morts pour peu de choses. Un simple renseignement (pas toujours très précis) ne valait pas ça, ni un tract, ni même un journal clandestin (parfois mal composé). À ceux-là, il faut répondre : C’est qu’ils étaient du côté de la vie. C’est qu’ils aimaient des choses aussi insignifiantes qu’une chanson, un claquement de doigts, un sourire. Tu peux serrer dans ta main une abeille jusqu’à ce qu’elle étouffe. Elle n’étouffera pas sans t’avoir piqué. C’est peu de choses, dis-tu. Oui, c’est peu de choses. Mais si elle ne te piquait pas, il y a longtemps qu’il n’y aurait plus d’abeilles. »
+
+Jean Paulhan, Cahiers de la Libération, n°3, février 1944, L’abeille
+
+img_snusnu.addEventListener('click', () => {  alert("Es-tu prêt à mourir pour le SNU SNU ?");   } );
+		  -->
+
+</html>
